@@ -1,12 +1,12 @@
-<div class="min-h-screen pb-12" [style.background-image]="'url(images/home_banner.png)'" style="background-size: cover; background-position: center;">
-    <div class="relative px-6 pt-14 lg:px-8">
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <div class="text-center">
+<div class="min-h-screen pb-12 flex items-center" [style.background-image]="'url(images/home_banner.png)'" style="background-size: cover; background-position: center;">
+    <div class="relative px-6 lg:px-8 w-full">
+        <div class="mx-auto max-w-2xl">
+            <div class="text-center flex flex-col items-center">
                 <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">LOTUS</h1>
                 <p class="mt-4 text-lg font-medium text-pretty text-white sm:text-xl/8">Bộ Sưu Tập Màu Sắc Của Sơn Sago</p>
-                <div class="mt-6 flex items-center justify-center gap-x-6">
-                    <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Ý NGHĨA MÀU SẮC</a>
-                    <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">CẢM HỨNG MÀU SẮC</a>
+                <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 w-full">
+                    <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 w-[200px] sm:w-auto">Ý NGHĨA MÀU SẮC</a>
+                    <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 w-[200px] sm:w-auto">CẢM HỨNG MÀU SẮC</a>
                 </div>
             </div>
         </div>
@@ -22,34 +22,41 @@
         <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 md:gap-12 mx-auto">
             <!-- Sơn Nội thất -->
             <div class="flex-1 flex flex-col items-center mb-8 md:mb-0">
-                <img src="/images/son_noi_that.png" alt="Sơn Nội thất" class="rounded-2xl object-cover w-full h-56 sm:h-80 mb-4 shadow-md">
+                <img src="/images/son_noi_that.png" alt="Sơn Nội thất" class="rounded-2xl object-cover w-full h-72 sm:h-96 mb-4 shadow-md">
                 <h3 class="text-2xl font-semibold text-center mb-4">Sơn Nội thất</h3>
-                <a routerLink="/noi-that" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300">Khám phá ngay</a>
+                <a routerLink="/noi-that" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] text-center">Khám phá ngay</a>
             </div>
             <!-- Sơn Ngoại thất -->
             <div class="flex-1 flex flex-col items-center">
-                <img src="/images/son_ngoai_that.png" alt="Sơn Ngoại thất" class="rounded-2xl object-cover w-full h-56 sm:h-80 mb-4 shadow-md">
+                <img src="/images/son_ngoai_that.png" alt="Sơn Ngoại thất" class="rounded-2xl object-cover w-full h-72 sm:h-96 mb-4 shadow-md">
                 <h3 class="text-xl sm:text-2xl font-semibold text-center mb-4">Sơn Ngoại thất</h3>
-                <a routerLink="/ngoai-that" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300">Khám phá ngay</a>
+                <a routerLink="/ngoai-that" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] text-center">Khám phá ngay</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Sơn chống thấm block -->
-<div class="w-full bg-stone-100">
-    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 py-12">
+<div class="w-full bg-white md:bg-stone-100">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 md:py-12">
         <!-- Image -->
         <div class="w-full md:w-1/2">
-            <img src="/images/son_chong_tham.png" alt="Sơn chống thấm" class="w-full h-auto object-cover rounded-lg shadow-md">
+            <img src="/images/son_chong_tham.png" alt="Sơn chống thấm" class="w-full h-72 sm:h-96 object-cover rounded-2xl shadow-md mb-4 md:mb-0">
+            <div class="md:hidden">
+                <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-center">Sơn chống thấm</h3>
+                <p class="text-sm sm:text-base text-gray-700 mb-6 text-center">
+                    Chống thấm là hạng mục quan trọng nhất cho phần hoàn thiện của một căn nhà, giúp ngôi nhà của bạn kéo dài tuổi thọ & giúp lớp sơn phủ bền màu hơn.
+                </p>
+                <a routerLink="/chong-tham" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] mx-auto block text-center">Khám phá ngay</a>
+            </div>
         </div>
         <!-- Content -->
-        <div class="w-full md:w-1/2 flex flex-col items-center text-center">
+        <div class="hidden md:flex md:w-1/2 flex-col items-center text-center">
             <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-center">Sơn chống thấm</h3>
             <p class="text-sm sm:text-base text-gray-700 mb-6 text-center">
                 Chống thấm là hạng mục quan trọng nhất cho phần hoàn thiện của một căn nhà, giúp ngôi nhà của bạn kéo dài tuổi thọ & giúp lớp sơn phủ bền màu hơn.
             </p>
-            <a routerLink="/chong-tham" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300">Khám phá ngay</a>
+            <a routerLink="/chong-tham" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px]">Khám phá ngay</a>
         </div>
     </div>
 </div>
