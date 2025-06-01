@@ -16,11 +16,11 @@
       </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12 lg:items-center lg:justify-center">
-            <a routerLink="/" routerLinkActive="text-red-600" [routerLinkActiveOptions]="{exact: true}" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Trang Chủ</a>
-            <a href="#" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Nội Thất</a>
+            <a routerLink="/" routerLinkActive="text-red-600" [routerLinkActiveOptions]="{exact: true}" (click)="scrollToTop()" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Trang Chủ</a>
+            <a routerLink="/noi-that" routerLinkActive="text-red-600" (click)="scrollToTop()" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Nội Thất</a>
             <a href="#" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Ngoại Thất</a>
             <a href="#" class="text-sm/6 lg:text-base font-semibold text-gray-900 hover:text-red-600 transition-all duration-300 hover:scale-105">Chống Thấm</a>
-            <a href="#" class="rounded-md bg-red-600 px-3 py-2 text-sm lg:text-base font-semibold text-white shadow-sm hover:bg-red-500 transition-all duration-300 hover:scale-105">Liên Hệ</a>
+            <a href="tel:+842866815050" class="rounded-md bg-red-600 px-3 py-2 text-sm lg:text-base font-semibold text-white shadow-sm hover:bg-red-500 transition-all duration-300 hover:scale-105">Liên Hệ</a>
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -44,11 +44,11 @@
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
-                        <a routerLink="/" routerLinkActive="text-red-600" [routerLinkActiveOptions]="{exact: true}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Trang Chủ</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Nội Thất</a>
+                        <a routerLink="/" routerLinkActive="text-red-600" [routerLinkActiveOptions]="{exact: true}" (click)="scrollToTop()" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Trang Chủ</a>
+                        <a routerLink="/noi-that" routerLinkActive="text-red-600" (click)="scrollToTop()" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Nội Thất</a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Ngoại Thất</a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-red-600 transition-all duration-300">Chống Thấm</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white bg-red-600 hover:bg-red-500 transition-all duration-300">Liên Hệ</a>
+                        <a href="tel:+842866815050" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white bg-red-600 hover:bg-red-500 transition-all duration-300">Liên Hệ</a>
                     </div>
                 </div>
             </div>
