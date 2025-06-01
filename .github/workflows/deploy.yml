@@ -26,16 +26,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/sago-paint-client/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
+          server: ${{ secrets.FTP_SERVER }}
+          ssh_private_key: ${{ secrets.FTP_PASSWORD }}
+          local_path: './dist/sago-paint-client/*'
+          remote_path: ${{ secrets.FTP_SERVER_DIR }}
