@@ -8,8 +8,8 @@
         <div class="overflow-x-auto overflow-y-hidden whitespace-nowrap mb-10 border-b border-gray-200">
             <div class="inline-flex gap-2 w-full sm:justify-center">
                 <a routerLink="/noi-that" class="inline-block min-w-[120px] text-center px-6 py-2 -mb-px border-b-2 border-red-600 text-red-600 font-semibold focus:outline-none">Nội thất</a>
-                <a routerLink="/exterior" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Ngoại Thất</a>
-                <a routerLink="/waterproof" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Chống Thấm</a>
+                <a routerLink="/ngoai-that" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Ngoại Thất</a>
+                <a routerLink="/chong-tham" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Chống Thấm</a>
             </div>
         </div>
         <!-- Section 1: Các sản phẩm -->
@@ -32,15 +32,19 @@
                 <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">ANACLEAN LAU CHÙI HIỆU QUẢ</h2>
                 <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">ANACLEAN mang lại vẻ lớp phủ sáng trong, được hỗ trợ bởi polymer liên kết ngang, đảm bảo rằng ngay cả những vết bẩn cứng đầu cũng có thể được làm sạch dễ dàng trên tường, giữ cho ngôi nhà của bạn luôn sạch sẽ, không tì vết và bền bỉ theo
                     thời gian.</p>
-                <a routerLink="/san-pham/chi-tiet/anaclean-bm41" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all inline-block">Khám Phá Sản Phẩm</a>
+                <a routerLink="/san-pham/anaclean-bm41" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all inline-block">Khám Phá Sản Phẩm</a>
             </div>
         </div>
         <!-- Section 3: Màu sắc -->
         <div class="flex flex-col-reverse md:flex-row items-center mb-12 gap-8 md:gap-[50px]">
             <div class="flex-1 text-center sm:text-left">
                 <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">Màu sắc</h2>
-                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Tìm màu sắc của bạn. Khám phá xu hướng màu sắc của Jotun hoặc khám phá những gam màu khác biệt.</p>
-                <button class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all">Xem Màu</button>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Tìm màu sắc của bạn. Khám phá xu hướng màu sắc của Sơn Sago hoặc khám phá những gam màu khác biệt.</p>
+                <div class="text-center mt-8">
+                    <a routerLink="/y-nghia-mau-sac" class="inline-block bg-red-600 text-white rounded-full px-8 py-3 text-lg font-semibold hover:bg-red-500 transition-all">
+                        Xem Màu
+                    </a>
+                </div>
             </div>
             <div class="flex-1 flex justify-center">
                 <img src="/images/farger_converted.png" alt="Phòng ngủ xanh dương" class="rounded-2xl object-cover w-full h-auto">
@@ -54,7 +58,7 @@
             <div class="flex-1 text-center sm:text-left">
                 <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">Truyền cảm hứng</h2>
                 <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Lấy cảm hứng từ ý tưởng của bạn. Khám phá hình ảnh các phòng khác và thử tạo hình dung xem chúng trông ra sao trong ngôi nhà mới của bạn.</p>
-                <button class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all">Xem Truyền Cảm Hứng</button>
+                <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all">Xem Truyền Cảm Hứng</a>
             </div>
         </div>
     </div>

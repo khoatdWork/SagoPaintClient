@@ -1,0 +1,64 @@
+<div class="w-full py-12">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2">Ngoại thất</h1>
+        <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+            Khám phá các giải pháp sơn ngoại thất chất lượng cao, bảo vệ và tôn tạo vẻ đẹp cho ngôi nhà của bạn.
+        </p>
+        <!-- Tabs -->
+        <div class="overflow-x-auto overflow-y-hidden whitespace-nowrap mb-10 border-b border-gray-200">
+            <div class="inline-flex gap-2 w-full sm:justify-center">
+                <a routerLink="/noi-that" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Nội thất</a>
+                <a routerLink="/ngoai-that" class="inline-block min-w-[120px] text-center px-6 py-2 -mb-px border-b-2 border-red-600 text-red-600 font-semibold focus:outline-none">Ngoại Thất</a>
+                <a routerLink="/chong-tham" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Chống Thấm</a>
+            </div>
+        </div>
+        <!-- Section 1: Các sản phẩm -->
+        <div class="flex flex-col-reverse md:flex-row items-center mb-12 gap-8 md:gap-[50px]">
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">Các sản phẩm</h2>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Khám phá bộ sưu tập sơn ngoại thất cao cấp của Sago, được thiết kế để chống chịu thời tiết và duy trì vẻ đẹp lâu dài cho ngôi nhà của bạn.</p>
+                <a routerLink="/ngoai-that/san-pham" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all inline-block">Tìm Sản Phẩm</a>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="/images/exterior_converted.png" alt="Sơn ngoại thất" class="rounded-2xl object-cover w-full h-auto">
+            </div>
+        </div>
+        <!-- Section 2: Chống thời tiết -->
+        <div class="flex flex-col md:flex-row items-center mb-12 gap-8 md:gap-[50px]">
+            <div class="flex-1 flex justify-center">
+                <img src="/images/exterior_weather_proof.png" alt="Chống thời tiết" class="object-contain w-full h-auto">
+            </div>
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">CHỐNG THỜI TIẾT HIỆU QUẢ</h2>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Sơn ngoại thất Sago được phát triển với công nghệ tiên tiến, giúp bảo vệ ngôi nhà của bạn khỏi tác động của thời tiết như mưa, nắng, gió và bụi bẩn. Độ bền màu cao và khả năng chống phai màu vượt trội.</p>
+                <a routerLink="/ngoai-that/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all inline-block">Khám Phá Sản Phẩm</a>
+            </div>
+        </div>
+        <!-- Section 3: Màu sắc -->
+        <div class="flex flex-col-reverse md:flex-row items-center mb-12 gap-8 md:gap-[50px]">
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">Màu sắc</h2>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Tìm màu sắc phù hợp cho ngôi nhà của bạn. Khám phá bảng màu ngoại thất đa dạng của Sơn Sago.</p>
+                <div class="text-center mt-8">
+                    <a routerLink="/y-nghia-mau-sac" class="inline-block bg-red-600 text-white rounded-full px-8 py-3 text-lg font-semibold hover:bg-red-500 transition-all">
+                        Xem Màu
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="/images/exterior_colors.png" alt="Màu sắc ngoại thất" class="rounded-2xl object-cover w-full h-auto">
+            </div>
+        </div>
+        <!-- Section 4: Truyền cảm hứng -->
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-[50px]">
+            <div class="flex-1 flex justify-center">
+                <img src="/images/exterior_inspiration.png" alt="Cảm hứng ngoại thất" class="rounded-2xl object-cover w-full h-auto">
+            </div>
+            <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2">Truyền cảm hứng</h2>
+                <p class="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">Khám phá những ý tưởng thiết kế ngoại thất độc đáo và cách phối màu hoàn hảo cho ngôi nhà của bạn.</p>
+                <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base sm:px-5 sm:py-2 sm:text-base font-semibold hover:bg-red-500 transition-all">Xem Truyền Cảm Hứng</a>
+            </div>
+        </div>
+    </div>
+</div>
