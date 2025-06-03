@@ -2,6 +2,7 @@ export const mockProducts = [
   {
     id: 'anaclean-bm41',
     name: 'Sơn Sagopaint Nội Thất Lau Chùi Hiệu Quả Anaclean - Bề Mặt Bóng Mờ',
+    category: 'interior',
     image: '/images/noi_that_ana_clean.png',
     description: 'Sơn Sagopaint nội thất Lau Chùi Hiệu Quả Anaclean -  bề mặt bóng mờ mang lại một lớp phủ sang trọng, được hỗ trợ bởi Polyme liên kết ngang, đảm bảo rằng ngay cả những vết bẩn cứng đầu cũng có thể được làm sạch dễ dàng trên tường, giữ cho ngôi nhà của bạn luôn sạch sẽ,  không tì vết và bền bỉ theo thời gian. Công nghệ NANO SILVER cung cấp đặc tính kháng khuẩn tuyệt vời chống lại vi khuẩn và các mầm bệnh Sơn Sagopaint nội thất Lau Chùi Hiệu Quả Anaclean -  bề mặt bóng mờ là sơn gốc nước , thân thiện với môi trường có chứa hàm lượng rất thấp các hợp chất hữu cơ dễ bay hơi (VOC), nhẹ mùi.',
     technicalSpecs: [
@@ -51,6 +52,7 @@ export const mockProducts = [
   {
     id: 'v2000',
     name: 'Sơn Nội Thất Sagopaint Màng Sơn Mịn Đẹp V-2000',
+    category: 'interior',
     image: '/images/son_sagopaint_smooth_and_beauty_v_2000.png',
     description: 'Sơn nội thất Sagopaint Màn sơn mịn đẹp V - 2000 là sơn nước trong nhà cam kết mang lại giá trị kinh tế cao nhất. Đây là sản phẩm có chất lượng ổn định và độ tin cậy cao, có thể đáp ứng những nhu cầu trang trí cho ngôi nhà bạn. Sản phẩm được thiết kế với tính năng che phủ khiếm khuyết bề mặt tuyệt hảo và màng sơn láng mịn.',
     technicalSpecs: [
@@ -94,6 +96,7 @@ export const mockProducts = [
  ,{
     id: 'ana-matex',
     name: 'Sơn Nội Thất Sagopaint Che Phủ Tối Đa ANA MATEX',
+    category: 'interior',
     image: '/images/son_noi_that_ana_matex.png',
     description: 'Sơn Nội Thất Sagopaint Che Phủ Tối Đa ANA MATEX là sơn nước cao cấp với thành phần gốc Pure Acrylic cho độ bền màu vượt trội. Nhờ ứng dụng công nghệ Titanium Dioxide TI-PURE, sản phẩm tạo nên lớp màng sơn phẳng mịn, có độ che phủ tuyệt vời, giúp tiết kiệm vật tư và mở rộng diện tích thi công. Đây là dòng sơn thân thiện với môi trường, hàm lượng VOC và kim loại nặng cực thấp, mùi nhẹ, an toàn cho sức khỏe người dùng và không gian sống.',
     technicalSpecs: [
@@ -135,10 +138,11 @@ export const mockProducts = [
              'Sơn phủ: 2 lớp sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX'
          ]
      }
-  } 
+  }
   ,{
     id: 'hoasen-ana',
     name: 'Bột Trét Nội Thất HOASEN ANA',
+    category: 'interior',
     image: '/images/bot_tret_noi_that_hoa_sen_ana.png',
     description: 'Bột trét tường nội thất HOASEN ANA là vật liệu xử lý bề mặt chất lượng cao, chuyên dùng để làm phẳng tường và trần nhà bê tông hoặc hồ xây thô ráp. Sản phẩm có độ phủ tốt, dễ thi công, cho bề mặt trắng sáng, láng mịn. Giúp che lấp hiệu quả các vết nứt, trầy xước, lỗ hổng và các hư hại do thấm nước, tạo nền hoàn hảo trước khi sơn hoàn thiện.',
     technicalSpecs: [
@@ -176,6 +180,6 @@ export const mockProducts = [
              'Sơn phủ: 2 lớp sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX'
          ]
      }
-  } 
+  }
   // Add more products as needed
 ];

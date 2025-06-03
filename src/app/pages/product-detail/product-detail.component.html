@@ -1,5 +1,11 @@
 <div class="w-full py-3 bg-gray-50 min-h-screen">
     <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        @if (error) {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Lỗi!</strong>
+            <span class="block sm:inline"> {{ error }}</span>
+        </div>
+        } @if (!error) {
         <!-- Breadcrumb -->
         <div class="flex items-center gap-2 text-base text-gray-600 mb-3 py-2">
             <a routerLink="/" class="hover:text-red-600 hover:cursor-pointer">Trang chủ</a>
@@ -26,8 +32,8 @@
                 <div>
                     <h1 class="text-2xl font-bold mb-4">{{ product.name }}</h1>
                     <button class="flex items-center justify-center px-6 py-3 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                            + Chọn Màu
-                        </button>
+                                + Chọn Màu
+                            </button>
                 </div>
             </div>
 
@@ -81,8 +87,8 @@
                             @for (feature of product.features; track feature) {
                             <li class="flex items-start">
                                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                            </svg> {{ feature }}
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                </svg> {{ feature }}
                             </li>
                             }
                         </ul>
@@ -110,11 +116,7 @@
                             @for (step of product.howToApplyContent.preparationSteps; track step.title) {
                             <div class="border-b border-gray-100 pb-3">
                                 <h3 class="font-medium text-gray-800 mb-1">{{ step.title }}</h3>
-                                @if (typeof step.content === 'object') {
-                                <p class="text-gray-600 text-sm">{{ step.content.new }}</p>
-                                } @else {
-                                <p class="text-gray-600 text-sm">{{ step.content }}</p>
-                                }
+                                <p class="text-gray-600 text-sm">{{ getStepContent(step) }}</p>
                             </div>
                             }
                         </div>
@@ -165,8 +167,8 @@
                         <!-- Section 1: Chuẩn bị bề mặt -->
                         <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
                             <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                    <span>1. Chuẩn bị bề mặt</span>
-                                </button>
+                                        <span>1. Chuẩn bị bề mặt</span>
+                                    </button>
                             <div class="bg-white p-4">
                                 <p class="text-gray-700">
                                     Đảm bảo bề mặt tường phải sạch và khô hoàn toàn, không có tạp chất như bụi, dầu mỡ hoặc sáp gây giảm độ bám dính. Độ ẩm của bề mặt nên dưới 16% theo máy đo độ ẩm Protimeter hoặc để bề mặt tường khô từ 21 đến 28 ngày trong điều kiện bình thường (nhiệt
@@ -179,8 +181,8 @@
                         <!-- Section 2: Làm sạch -->
                         <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
                             <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                    <span>2. Làm sạch</span>
-                                </button>
+                                        <span>2. Làm sạch</span>
+                                    </button>
                             <div class="bg-white p-4">
                                 <p class="text-gray-700">Rửa sạch dụng cụ với nước sạch ngay sau khi sử dụng.</p>
                             </div>
@@ -189,8 +191,8 @@
                         <!-- Section 3: Lưu trữ -->
                         <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
                             <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                    <span>3. Lưu trữ</span>
-                                </button>
+                                        <span>3. Lưu trữ</span>
+                                    </button>
                             <div class="bg-white p-4">
                                 <p class="text-gray-700">Tồn trữ sơn ở nơi khô, mát. Đặt thùng sơn ở vị trí thẳng đứng an toàn và đậy chặt nắp. Dùng ngay sau khi mở nắp.</p>
                             </div>
@@ -199,8 +201,8 @@
                         <!-- Section 4: Sức khỏe & An toàn -->
                         <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
                             <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                    <span>4. Sức khỏe & An toàn</span>
-                                </button>
+                                        <span>4. Sức khỏe & An toàn</span>
+                                    </button>
                             <div class="bg-white p-4">
                                 <p class="text-gray-700">
                                     Để xa tầm tay trẻ em, thực phẩm, đồ uống và thức ăn cho động vật. - Tránh tiếp xúc với da hoặc mắt. Mang găng tay, khẩu trang và kính bảo vệ mắt thích hợp trong lúc thi công. - Tránh hít hơi/bụi sương của sơn. Chỉ sử dụng ở nơi thông thoáng. - Việc xả
@@ -228,10 +230,11 @@
                         <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">{{ relatedProduct.name }}</h2>
                         <p class="text-gray-700 text-sm mb-4 line-clamp-5">{{ relatedProduct.description }}</p>
                     </div>
-                    <a [routerLink]="['/san-pham/chi-tiet', relatedProduct.id]" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block hover:cursor-pointer">Xem sản phẩm</a>
+                    <a [routerLink]="['/san-pham', relatedProduct.id]" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block hover:cursor-pointer">Xem sản phẩm</a>
                 </div>
                 }
             </div>
         </div>
+        }
     </div>
 </div>

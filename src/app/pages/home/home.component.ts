@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TitleService } from '../../services/title.service';
+import { MetaService } from '../../services/meta.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: TitleService,
+    private metaService: MetaService
+  ) { }
 
   ngOnInit() {
+    this.titleService.setHomeTitle();
+    this.metaService.setHomeMeta();
   }
 
   scrollToTop(): void {
