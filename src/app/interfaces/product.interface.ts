@@ -7,13 +7,10 @@ export interface Product {
   technicalSpecs: string[];
   howToUse: string[];
   notes: string;
-  mainInfo: {
-    dryingTime: string;
-    nextCoat: string;
-    coverage: string;
-    packaging: string;
-    ingredients: string;
-  };
+  mainInfo: Array<{
+    key: string;
+    value: string;
+  }>;
   features: string[];
   howToApplyContent: {
     productInfoContent: string;

@@ -7,90 +7,36 @@
         <!-- Tabs -->
         <div class="overflow-x-auto overflow-y-hidden whitespace-nowrap mb-10 border-b border-gray-200">
             <div class="inline-flex gap-2 w-full sm:justify-center">
-                <a routerLink="/noi-that/san-pham" class="inline-block min-w-[120px] text-center px-6 py-2 -mb-px border-b-2 border-red-600 text-red-600 font-semibold focus:outline-none">Nội thất</a>
-                <a routerLink="/exterior" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Ngoại Thất</a>
-                <a routerLink="/waterproof" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Chống Thấm</a>
+                <a routerLink="/noi-that/san-pham" class="inline-block min-w-[120px] text-center px-6 py-2 -mb-px border-b-2 border-red-600 text-red-600 font-semibold focus:outline-none">Nội
+          thất</a>
+                <a routerLink="/ngoai-that/san-pham" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Ngoại
+          Thất</a>
+                <a routerLink="/chong-tham/san-pham" class="inline-block min-w-[120px] text-center px-6 py-2 text-gray-700 hover:text-red-600 font-semibold focus:outline-none">Chống
+          Thấm</a>
             </div>
         </div>
         <!-- Product Grid -->
+        @if (products.length > 0) {
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Product Card 1 -->
+            @for (product of products; track $index) {
             <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
                 <div class="p-[15px] text-left w-full">
-                    <img src="/images/son_sagopaint_smooth_and_beauty_v_2000.png" alt="Sơn V-2000" class="h-80 mb-4 object-contain mx-auto">
-                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">Sơn Nội Thất Màng Sơn Mịn Đẹp V-2000</h2>
-                    <p class="text-gray-700 text-sm mb-4">Dòng sơn nước trong nhà cam kết mang lại giá trị kinh tế cao nhất</p>
+                    <img [src]="product.image" [alt]="product.name" class="h-80 mb-4 object-contain mx-auto">
+                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">{{ product.name }}</h2>
+                    <p class="text-gray-700 text-sm mb-4">{{ product.description }}</p>
                     <ul class="text-gray-600 text-base mb-4 list-disc list-inside">
-                        <li>Màn sơn mịn đẹp</li>
-                        <li>Độ phủ hoàn hảo</li>
-                        <li>Chống nấm mốc</li>
-                        <li>Thân thiện với môi trường nhẹ mùi</li>
+                        @for (feature of product.features || product.technicalSpecs; track $index) {
+                        <li>{{ feature }}</li>
+                        }
                     </ul>
                 </div>
-                <a routerLink="/san-pham/v2000" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem sản phẩm</a>
+                <a [routerLink]="'/san-pham/' + product.id" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem
+          sản phẩm</a>
             </div>
-            <!-- Product Card 2 -->
-            <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
-                <div class="p-[15px] text-left w-full">
-                    <img src="/images/noi_that_ana_clean.png" alt="Sơn SAGO ANACLEAN" class="h-80 mb-4 object-contain mx-auto">
-                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">Sơn Sagopaint Nội Thất Lau Chùi Hiệu Quả Anaclean - Bề Mặt Bóng Mờ</h2>
-                    <p class="text-gray-700 text-sm mb-4">Cộng nghệ NANO SILVER cung cấp đặc tính kháng khuẩn tuyệt vời chống lại vi khuẩn và các mầm bệnh</p>
-                    <ul class="text-gray-600 text-base mb-4 list-disc list-inside">
-                        <li>Lau chùi hiệu quả gấp 2 lần</li>
-                        <li>Công nghệ chống bám bẩn & tính năng kháng khuẩn NANO SILVER</li>
-                        <li>Bề mặt sang trọng, màu sắc bền đẹp</li>
-                        <li>Thân thiện với môi trường nhẹ mùi</li>
-                    </ul>
-                </div>
-                <a routerLink="/san-pham/anaclean-bm41" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem sản phẩm</a>
-            </div>
-            <!-- Product Card 3 -->
-            <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
-                <div class="p-[15px] text-left w-full">
-                    <img src="/images/son_noi_that_ana_matex.png" alt="Sơn ANA MATTE" class="h-80 mb-4 object-contain mx-auto">
-                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">Sơn Nội Thất Che Phủ Tối Đa ANA MATEX</h2>
-                    <p class="text-gray-700 text-sm mb-4">Đem lại màng sơn phẳng mịn với công nghệ Titanium DioxideTI - PURE giúp cho màn sơn có độ che phủ tuyệt vời, có thể phủ rộng hơn nhờ có độ che phủ cao.</p>
-                    <ul class="text-gray-600 text-base mb-4 list-disc list-inside">
-                        <li>Độ phủ rất cao</li>
-                        <li>Màu sắc tươi sáng</li>
-                        <li>Chống nấm mốc, bám dính tốt</li>
-                        <li>Màn sơn trắng mịn đẹp, sang trọng</li>
-                        <li>Thân thiện với môi trường nhẹ mùi</li>
-                    </ul>
-                </div>
-                <a routerLink="/san-pham/ana-matex" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem sản phẩm</a>
-            </div>
-            <!-- Product Card 4 -->
-            <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
-                <div class="p-[15px] text-left w-full">
-                    <img src="/images/bot_tret_noi_that_hoa_sen_ana.png" alt="Bột trét ANA" class="h-80 mb-4 object-contain mx-auto">
-                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">Bột Trết Nội Thất HOASEN ANA</h2>
-                    <p class="text-gray-700 text-sm mb-4">Sản phẩm có độ phủ tốt, dễ thi công, mang lại bè mặt láng mịn, màu sắc trắng vượt trội. Được thiết kế để thi công trên những bề mặt tường, trần thô ráp, lồi lõm để làm láng mịn bề mặt bị xước sát lấp các lỗ hổng, vết nứt sâu hoặc để
-                        trám phần hư hại do nước trên tường khô. </p>
-                    <ul class="text-gray-600 text-base mb-4 list-disc list-inside">
-                        <li>Tạo bề mặt nhẵn mịn</li>
-                        <li>Dễ dàng xả nhám</li>
-                        <li>Độ che phủ tốt</li>
-                    </ul>
-                </div>
-                <a routerLink="/san-pham/hoasen-ana" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem sản phẩm</a>
-            </div>
-            <!-- Product Card 5 -->
-            <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
-                <div class="p-[15px] text-left w-full">
-                    <img src="/images/son_lot_noi_ngoai_that_sealer_primer.png" alt="Sơn lót nội thất" class="h-80 mb-4 object-contain mx-auto">
-                    <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">Sơn Sagopaint Lót Nội & Ngoại Thất Sealer Primer</h2>
-                    <p class="text-gray-700 text-sm mb-4">Sơn Sagopaint lót nội & ngoại thất Sealer Primer là loại sơn lót được sản xuất từ nhựa Acrylic với những tính năng: độ bám dính tốt, chống kiềm hiệu quả. Thích hợp sử dụng cho trang trí nội thất & ngoại thất trên bề mặt cũ và mới như:
-                        bề mặt hồ vữa, bê tông, xi măng …</p>
-                    <ul class="text-gray-600 text-base mb-4 list-disc list-inside">
-                        <li>Chống kiềm hiệu quả</li>
-                        <li>Liên kết bề mặt, tạo độ bám dính tốt cho lớp sơn phủ</li>
-                        <li>Giúp màn sơn láng mịn, đanh chắc, giữ màu cho lớp sơn phủ</li>
-                        <li>Thân thiện với môi trường nhẹ mùi</li>
-                    </ul>
-                </div>
-                <a routerLink="/san-pham/sealer-primer" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block">Xem sản phẩm</a>
-            </div>
+            }
         </div>
+        } @else {
+        <div class="text-center text-gray-500 py-12 text-lg font-semibold">Hiện chưa có sản phẩm nào trong danh mục này.</div>
+        }
     </div>
 </div>
