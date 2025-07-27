@@ -1,0 +1,67 @@
+<!-- Modal backdrop -->
+@if (isOpen) {
+<div
+  class="fixed inset-0 backdrop bg-opacity-60 overflow-y-auto h-full w-full z-50 flex items-center justify-center p-4 transition-opacity duration-300"
+  (click)="onBackdropClick($event)">
+  <!-- Modal content -->
+  <div
+    class="relative w-full max-w-6xl bg-white rounded-lg shadow-xl border-0 transform transition-all duration-300 scale-100">
+    <!-- Modal header -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-200">
+      <h3 class="text-xl font-semibold text-gray-900">Chọn Màu Sơn</h3>
+      <button (click)="onClose()"
+        class="text-gray-400 hover:text-gray-600 focus:outline-none focus:text-gray-600 transition-colors duration-200 p-1 rounded-full hover:bg-gray-100"
+        aria-label="Close modal">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="p-6">
+
+      @for (item of categoryList; track $index) {
+      <button
+        class="
+        px-4 py-2 mb-3 text-sm font-medium text-gray-700 
+        bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 
+        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 
+        transition-all duration-200 hover:shadow-sm"  [ngClass]="
+        selectedCategory === item
+          ? 'bg-blue-600 hover:bg-blue-700 text-white font-semibold'
+          : 'bg-white hover:bg-gray-100 text-gray-700'
+      " (click)="onCategoryChange(item)">
+        {{item | titlecase }}
+      </button>
+      }
+
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 max-h-96 overflow-y-auto">
+        @for (color of colorList; track color.colorCode) {
+        <div (click)="onColorSelect(color)"
+          class="color-tile cursor-pointer rounded-lg p-3 border-2 border-transparent hover:border-red-500 hover:shadow-lg transition-all duration-200 transform hover:scale-105 bg-white"
+          [style.background-color]="color.colorCode">
+          <div class="text-center">
+            <p class="font-semibold text-xs mb-1 leading-tight truncate">
+              {{ color.name }}
+            </p>
+            <p class="text-xs opacity-80 font-mono">
+              {{ color.code }}
+            </p>
+          </div>
+        </div>
+        }
+      </div>
+
+      <!-- Modal footer -->
+      <div class="flex items-center justify-end p-6 border-t border-gray-200 space-x-3">
+        <button (click)="onClose()"
+          class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200 hover:shadow-sm">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}

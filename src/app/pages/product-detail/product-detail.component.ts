@@ -5,12 +5,15 @@ import { CommonModule } from '@angular/common';
 import { mockProducts } from '../../data/product-data';
 import { TitleService } from '../../services/title.service';
 import { MetaService } from '../../services/meta.service';
-import { Product, isContentObject, PreparationStep } from '../../interfaces/product.interface';
+import { Product, isContentObject } from '../../interfaces/product.interface';
+import { DataService } from '../../services/data.service';
+import { ColorSelectionDialogComponent } from '../color-selection-dialog/color-selection-dialog.component';
+import { ColorModel } from '../../interfaces/color.interface';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ColorSelectionDialogComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
 })
@@ -19,12 +22,16 @@ export class ProductDetailComponent implements OnInit {
   product: Product | null = null;
   relatedProducts: Product[] = [];
   error: string | null = null;
+  isColorDialogOpen: boolean = false;
+  colors: ColorModel[] = [];
+  selectedColor: ColorModel | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private titleService: TitleService,
-    private metaService: MetaService
-  ) {}
+    private metaService: MetaService,
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -32,6 +39,9 @@ export class ProductDetailComponent implements OnInit {
       this.getProductDetail(this.productId);
       this.getRelatedProducts();
     });
+
+    // Khởi tạo dữ liệu màu
+    this.dataService.setColorsData();
   }
 
   getProductDetail(id: string | null): void {
@@ -61,18 +71,26 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  onSelectColor() {
+    this.colors = this.dataService.colorsData.value;
+    this.isColorDialogOpen = true;
+  }
+
+  onCloseColorDialog(): void {
+    this.isColorDialogOpen = false;
+  }
+
+  onColorSelected(color: ColorModel): void {
+    this.selectedColor = color;
+    console.log('Selected color:', color);
+    // Có thể thêm logic để cập nhật màu sản phẩm ở đây
+  }
+
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   isContentObject(content: string | { new: string; old: string }): boolean {
     return isContentObject(content);
-  }
-
-  getStepContent(step: PreparationStep): string {
-    if (typeof step.content === 'object' && step.content !== null && 'new' in step.content) {
-      return step.content.new;
-    }
-    return step.content as string;
   }
 }

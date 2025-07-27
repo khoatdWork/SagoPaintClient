@@ -1,0 +1,22 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu nền đen mờ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* Đảm bảo hiển thị trên cùng */
+}
+
+.active-tab {
+    background-color: #000000;
+}
+
+.bg-blue-600 { 
+  background-color: rgb(23, 161, 200);
+}

@@ -1,226 +1,213 @@
 <div class="w-full py-3 bg-gray-50 min-h-screen">
-    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
-        @if (error) {
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-            <strong class="font-bold">Lỗi!</strong>
-            <span class="block sm:inline"> {{ error }}</span>
-        </div>
-        } @if (!error) {
-        <!-- Breadcrumb -->
-        <div class="flex items-center gap-2 text-base text-gray-600 mb-3 py-2">
-            <a routerLink="/" class="hover:text-red-600 hover:cursor-pointer">Trang chủ</a>
-            <span>/</span>
-            <a routerLink="/noi-that/san-pham" class="hover:text-red-600 hover:cursor-pointer">Sản phẩm nội thất</a> @if (product) {
-            <span>/</span>
-            <span class="text-red-600">{{ product.name }}</span> }
-        </div>
-
-        <!-- Product Info -->
-        @if (product) {
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pb-12 md:pb-20">
-                <!-- Product Image -->
-                <div class="flex items-center justify-center">
-                    <!-- Block for dynamic background color -->
-                    <div class="bg-[#f9f9f9] p-4 rounded-lg relative h-[300px] w-full flex items-center justify-center">
-                        <!-- Placeholder text for no color selected -->
-                        <span class="text-gray-600 text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Không có màu nào được chọn</span>
-                        <img [src]="product.image" [alt]="product.name" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-48 h-48 md:w-64 md:h-64 object-contain" />
-                    </div>
-                </div>
-                <!-- Product Details -->
-                <div>
-                    <h1 class="text-2xl font-bold mb-4">{{ product.name }}</h1>
-                    <button class="flex items-center justify-center px-6 py-3 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                + Chọn Màu
-                            </button>
-                </div>
-            </div>
-
-            <!-- Product Details Section -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
-                <!-- Left Column: Thông tin chính -->
-                <div class="md:col-span-1">
-                    <!-- Thông tin chính Badge -->
-                    <div class="relative flex items-center justify-center h-12 mb-4">
-                        <img src="/svg/information_badeg.svg" alt="Information Badge" class="w-full h-full object-cover" />
-                        <h2 class="text-lg font-bold text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                            Thông tin chính
-                        </h2>
-                    </div>
-
-                    <!-- Content inside bg-gray-100 -->
-                    <div class="bg-gray-100 p-4 rounded-md">
-                        @if (product.mainInfo) {
-                        <div class="space-y-3 text-gray-700 mb-6">
-                            @for (info of product.mainInfo; track info.key) {
-                            <div>
-                                <h3 class="font-semibold">{{ info.key }}</h3>
-                                <p>{{ info.value }}</p>
-                            </div>
-                            }
-                        </div>
-                        }
-
-                        <!-- Tính năng sản phẩm Title -->
-                        <h2 class="text-lg font-bold mt-6 mb-4 text-red-600">
-                            Tính năng sản phẩm
-                        </h2>
-
-                        <!-- Tính năng sản phẩm List -->
-                        @if (product.features) {
-                        <ul class="space-y-2 text-gray-700 list-none pl-0">
-                            @for (feature of product.features; track feature) {
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                                </svg> {{ feature }}
-                            </li>
-                            }
-                        </ul>
-                        }
-                    </div>
-                </div>
-
-                <!-- Right Column: Product Info, Thi công, Hệ thống -->
-                <div class="md:col-span-2">
-                    <!-- Thông tin sản phẩm -->
-                    @if (product.howToApplyContent?.productInfoContent) {
-                    <div class="mb-6">
-                        <h2 class="text-xl font-bold mb-3">Thông tin sản phẩm</h2>
-                        <p class="text-gray-700">{{ product.howToApplyContent.productInfoContent }}</p>
-                    </div>
-                    }
-
-                    <!-- Phương pháp thi công -->
-                    @if (product.howToApplyContent?.preparationSteps || product.howToApplyContent?.tools || product.howToApplyContent?.thinning || product.howToApplyContent?.thinningRatio) {
-                    <div class="mb-6">
-                        <h2 class="text-xl font-bold mb-4">Phương pháp thi công</h2>
-
-                        @if (product.howToApplyContent.preparationSteps) {
-                        <div class="space-y-3">
-                            @for (step of product.howToApplyContent.preparationSteps; track step.title) {
-                            <div class="border-b border-gray-100 pb-3">
-                                <h3 class="font-medium text-gray-800 mb-1">{{ step.title }}</h3>
-                                <p class="text-gray-600 text-sm">{{ getStepContent(step) }}</p>
-                            </div>
-                            }
-                        </div>
-                        } @if (product.howToApplyContent.tools) {
-                        <div class="mt-4 border-b border-gray-100 pb-3">
-                            <h3 class="font-medium text-gray-800 mb-1">Công cụ thi công:</h3>
-                            <p class="text-gray-600 text-sm">{{ product.howToApplyContent.tools }}</p>
-                        </div>
-                        } @if (product.howToApplyContent.thinning) {
-                        <div class="mt-4 border-b border-gray-100 pb-3">
-                            <h3 class="font-medium text-gray-800 mb-1">Pha loãng:</h3>
-                            <p class="text-gray-600 text-sm">{{ product.howToApplyContent.thinning }}</p>
-                        </div>
-                        } @if (product.howToApplyContent.thinningRatio) {
-                        <div class="mt-4 border-b border-gray-100 pb-3">
-                            <h3 class="font-medium text-gray-800 mb-1">Tỷ lệ pha loãng:</h3>
-                            <p class="text-gray-600 text-sm">{{ product.howToApplyContent.thinningRatio }}</p>
-                        </div>
-                        }
-                        <!-- Thêm phần lưu ý -->
-                        @if (product.notes) {
-                        <div class="mt-4">
-                            <p class="text-sm text-gray-600">{{ product.notes }}</p>
-                        </div>
-                        }
-                    </div>
-                    }
-
-                    <!-- Hệ thống sơn đề nghị -->
-                    @if (product.howToApplyContent?.suggestedSystem) {
-                    <div class="mt-6">
-                        <h2 class="text-xl font-bold mb-4">Hệ thống sơn đề nghị</h2>
-                        <div class="space-y-2">
-                            @for (item of product.howToApplyContent.suggestedSystem; track item) {
-                            <div class="flex items-start">
-                                <span class="text-red-600 mr-2">•</span>
-                                <p class="text-gray-600 text-sm">{{ item }}</p>
-                            </div>
-                            }
-                        </div>
-                    </div>
-                    }
-
-                    <!-- Mẹo & Lời khuyên -->
-                    <div class="mt-8">
-                        <h2 class="text-xl font-bold mb-4 text-left">Mẹo & Lời khuyên</h2>
-
-                        <!-- Section 1: Chuẩn bị bề mặt -->
-                        <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
-                            <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                        <span>1. Chuẩn bị bề mặt</span>
-                                    </button>
-                            <div class="bg-white p-4">
-                                <p class="text-gray-700">
-                                    Đảm bảo bề mặt tường phải sạch và khô hoàn toàn, không có tạp chất như bụi, dầu mỡ hoặc sáp gây giảm độ bám dính. Độ ẩm của bề mặt nên dưới 16% theo máy đo độ ẩm Protimeter hoặc để bề mặt tường khô từ 21 đến 28 ngày trong điều kiện bình thường (nhiệt
-                                    độ trung bình 30°C, độ ẩm môi trường 80%). Sử dụng hoá chất thích hợp để xử lý bề mặt nếu có rêu mốc. Sử dụng bột trét SAGO để tạo ra bề mặt nhẵn mịn. Sau đó, sơn 1 lớp Sơn Lót Nội Thất SAGO để có bề mặt nhẵn mịn, tăng
-                                    độ kết dính và giữ màu sắc bền lâu cho lớp sơn hoàn thiện. Tránh pha quá nhiều nước vào hỗn hợp trét, vì điều này có thể làm giảm khả năng che phủ và khả năng chống chùi rửa của bề mặt.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Section 2: Làm sạch -->
-                        <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
-                            <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                        <span>2. Làm sạch</span>
-                                    </button>
-                            <div class="bg-white p-4">
-                                <p class="text-gray-700">Rửa sạch dụng cụ với nước sạch ngay sau khi sử dụng.</p>
-                            </div>
-                        </div>
-
-                        <!-- Section 3: Lưu trữ -->
-                        <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
-                            <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                        <span>3. Lưu trữ</span>
-                                    </button>
-                            <div class="bg-white p-4">
-                                <p class="text-gray-700">Tồn trữ sơn ở nơi khô, mát. Đặt thùng sơn ở vị trí thẳng đứng an toàn và đậy chặt nắp. Dùng ngay sau khi mở nắp.</p>
-                            </div>
-                        </div>
-
-                        <!-- Section 4: Sức khỏe & An toàn -->
-                        <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
-                            <button class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
-                                        <span>4. Sức khỏe & An toàn</span>
-                                    </button>
-                            <div class="bg-white p-4">
-                                <p class="text-gray-700">
-                                    Để xa tầm tay trẻ em, thực phẩm, đồ uống và thức ăn cho động vật. - Tránh tiếp xúc với da hoặc mắt. Mang găng tay, khẩu trang và kính bảo vệ mắt thích hợp trong lúc thi công. - Tránh hít hơi/bụi sương của sơn. Chỉ sử dụng ở nơi thông thoáng. - Việc xả
-                                    nhám khô, cắt hoặc hàn xì màng sơn khô sẽ tạo bụi và/hoặc khói độc. Nên xả nhám ướt nếu có thể. Nếu không thể tránh được tiếp xúc với khói độc dù đã sử dụng hệ thống hút hơi, nên sử dụng thiết bị bảo vệ đường hô hấp
-                                    thích hợp. - Lấy lại lượng sơn còn dư trên cọ hoặc rulô trước khi rửa. - Không tái sử dụng thùng sơn để chứa thực phẩm hay đồ uống. - Nếu nuốt phải, nên đến gặp bác sĩ ngay và mang theo thùng sơn hoặc nhãn sơn. - Khi
-                                    bị dính sơn vào mắt lập tức rửa mắt với nhiều nước sạch và đến gặp bác sĩ ngay. - Khi bị dính vào da lập tức rửa sạch với xà phòng và nước sạch hoặc dung dịch rửa tay thích hợp. Không sử dụng dung môi. - Tránh thải
-                                    sơn ra môi trường. Không đổ sơn vào cống rãnh hay nguồn nước. Xử lý thùng sơn đã sử dụng theo đúng quy định địa phương. - Thông Tin An Toàn Sản Phẩm được cung cấp theo yêu cầu sử dụng.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        }
-
-        <!-- Related Products -->
-        <div class="mb-8">
-            <h2 class="text-xl font-bold mb-4">Sản phẩm liên quan</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                @for (relatedProduct of relatedProducts; track relatedProduct.id) {
-                <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
-                    <div class="p-[15px] text-left w-full">
-                        <img [src]="relatedProduct.image" [alt]="relatedProduct.name" class="h-80 mb-4 object-contain mx-auto">
-                        <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">{{ relatedProduct.name }}</h2>
-                        <p class="text-gray-700 text-sm mb-4 line-clamp-5">{{ relatedProduct.description }}</p>
-                    </div>
-                    <a [routerLink]="['/san-pham', relatedProduct.id]" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block hover:cursor-pointer">Xem sản phẩm</a>
-                </div>
-                }
-            </div>
-        </div>
-        }
+  <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+    @if (error) {
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <strong class="font-bold">Lỗi!</strong>
+      <span class="block sm:inline"> {{ error }}</span>
     </div>
+    } @if (!error) {
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-base text-gray-600 mb-3 py-2">
+      <a routerLink="/" class="hover:text-red-600 hover:cursor-pointer">Trang chủ</a>
+      <span>/</span>
+      <a routerLink="/noi-that/san-pham" class="hover:text-red-600 hover:cursor-pointer">Sản phẩm nội thất</a> @if
+      (product) {
+      <span>/</span>
+      <span class="text-red-600">{{ product.name }}</span> }
+    </div>
+
+    <!-- Product Info -->
+    @if (product) {
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- Product Image -->
+        <div class="flex items-center justify-center mb-15">
+          <!-- Block for dynamic background color -->
+          <div class="bg-[#f9f9f9] p-4 rounded-lg relative h-[300px] w-full flex items-center justify-center"
+            [style.backgroundColor]="selectedColor?.colorCode">
+            <!-- Placeholder text for no color selected -->
+            @if(!selectedColor) {
+            <span
+              class="text-gray-600 text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Không
+              có màu nào được chọn</span>
+            } @else {
+            <span
+              class="text-gray-900 text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold">{{selectedColor.name}}
+              - {{ selectedColor.code}}</span>
+            }
+            <img [src]="product.image" [alt]="product.name"
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-64 h-64 md:w-84 md:h-84 object-contain" />
+          </div>
+        </div>
+        <!-- Product Details -->
+        <div class="md:pt-0">
+          <h1 class="text-2xl font-bold mb-4">{{ product.name }}</h1>
+          <button (click)="onSelectColor()"
+            class="flex items-center justify-center px-6 py-3 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            + Chọn Màu
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Details Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+        <!-- Left Column: Thông tin chính -->
+        <div class="md:col-span-1">
+          <!-- Thông tin chính Badge -->
+          <div class="relative flex items-center justify-center h-12 mb-4">
+            <img src="/svg/information_badeg.svg" alt="Information Badge" class="w-full h-full object-cover" />
+            <h2
+              class="text-lg font-bold text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              Thông tin chính
+            </h2>
+          </div>
+
+          <!-- Content inside bg-gray-100 -->
+          <div class="bg-gray-100 p-4 rounded-md">
+            @if (product.mainInfo) {
+            <div class="space-y-3 text-gray-700 mb-6">
+              @for (info of product.mainInfo; track info.key) {
+              <div>
+                <h3 class="font-semibold">{{ info.key }}</h3>
+                <p>{{ info.value }}</p>
+              </div>
+              }
+            </div>
+            }
+
+            <!-- Tính năng sản phẩm Title -->
+            <h2 class="text-lg font-bold mt-6 mb-4 text-red-600">
+              Tính năng sản phẩm
+            </h2>
+
+            <!-- Tính năng sản phẩm List -->
+            @if (product.features) {
+            <ul class="space-y-2 text-gray-700 list-none pl-0">
+              @for (feature of product.features; track feature) {
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"></path>
+                </svg> {{ feature }}
+              </li>
+              }
+            </ul>
+            }
+          </div>
+        </div>
+
+        <!-- Right Column: Product Info, Thi công, Hệ thống -->
+        <div class="md:col-span-2">
+          <!-- Thông tin sản phẩm -->
+          @if (product.howToApplyContent?.productInfoContent) {
+          <div class="mb-6" [innerHTML]="product.howToApplyContent?.productInfoContent">
+            <h2 class="text-xl font-bold mb-3">Thông tin sản phẩm</h2>
+            <p class="text-gray-700">{{ product.howToApplyContent.productInfoContent }}</p>
+          </div>
+          }
+
+          <!-- Mẹo & Lời khuyên -->
+          <div class="mt-8">
+            <h2 class="text-xl font-bold mb-4 text-left">Mẹo & Lời khuyên</h2>
+
+            <!-- Section 1: Chuẩn bị bề mặt -->
+            <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
+              <button
+                class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
+                <span>1. Chuẩn bị bề mặt</span>
+              </button>
+              <div class="bg-white p-4">
+                <p class="text-gray-700">
+                  Đảm bảo bề mặt tường phải sạch và khô hoàn toàn, không có tạp chất như bụi, dầu mỡ hoặc sáp gây giảm
+                  độ bám dính. Độ ẩm của bề mặt nên dưới 16% theo máy đo độ ẩm Protimeter hoặc để bề mặt tường khô từ 21
+                  đến 28 ngày trong điều kiện bình thường (nhiệt
+                  độ trung bình 30°C, độ ẩm môi trường 80%). Sử dụng hoá chất thích hợp để xử lý bề mặt nếu có rêu mốc.
+                  Sử dụng bột trét SAGO để tạo ra bề mặt nhẵn mịn. Sau đó, sơn 1 lớp Sơn Lót Nội Thất SAGO để có bề mặt
+                  nhẵn mịn, tăng
+                  độ kết dính và giữ màu sắc bền lâu cho lớp sơn hoàn thiện. Tránh pha quá nhiều nước vào hỗn hợp trét,
+                  vì điều này có thể làm giảm khả năng che phủ và khả năng chống chùi rửa của bề mặt.
+                </p>
+              </div>
+            </div>
+
+            <!-- Section 2: Làm sạch -->
+            <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
+              <button
+                class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
+                <span>2. Làm sạch</span>
+              </button>
+              <div class="bg-white p-4">
+                <p class="text-gray-700">Rửa sạch dụng cụ với nước sạch ngay sau khi sử dụng.</p>
+              </div>
+            </div>
+
+            <!-- Section 3: Lưu trữ -->
+            <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
+              <button
+                class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
+                <span>3. Lưu trữ</span>
+              </button>
+              <div class="bg-white p-4">
+                <p class="text-gray-700">Tồn trữ sơn ở nơi khô, mát. Đặt thùng sơn ở vị trí thẳng đứng an toàn và đậy
+                  chặt nắp. Dùng ngay sau khi mở nắp.</p>
+              </div>
+            </div>
+
+            <!-- Section 4: Sức khỏe & An toàn -->
+            <div class="border border-gray-200 rounded-md mb-4 overflow-hidden">
+              <button
+                class="flex justify-between items-center w-full p-2 pl-[15px] bg-red-600 text-white font-semibold focus:outline-none text-[15px]">
+                <span>4. Sức khỏe & An toàn</span>
+              </button>
+              <div class="bg-white p-4">
+                <p class="text-gray-700">
+                  Để xa tầm tay trẻ em, thực phẩm, đồ uống và thức ăn cho động vật. - Tránh tiếp xúc với da hoặc mắt.
+                  Mang găng tay, khẩu trang và kính bảo vệ mắt thích hợp trong lúc thi công. - Tránh hít hơi/bụi sương
+                  của sơn. Chỉ sử dụng ở nơi thông thoáng. - Việc xả
+                  nhám khô, cắt hoặc hàn xì màng sơn khô sẽ tạo bụi và/hoặc khói độc. Nên xả nhám ướt nếu có thể. Nếu
+                  không thể tránh được tiếp xúc với khói độc dù đã sử dụng hệ thống hút hơi, nên sử dụng thiết bị bảo vệ
+                  đường hô hấp
+                  thích hợp. - Lấy lại lượng sơn còn dư trên cọ hoặc rulô trước khi rửa. - Không tái sử dụng thùng sơn
+                  để chứa thực phẩm hay đồ uống. - Nếu nuốt phải, nên đến gặp bác sĩ ngay và mang theo thùng sơn hoặc
+                  nhãn sơn. - Khi
+                  bị dính sơn vào mắt lập tức rửa mắt với nhiều nước sạch và đến gặp bác sĩ ngay. - Khi bị dính vào da
+                  lập tức rửa sạch với xà phòng và nước sạch hoặc dung dịch rửa tay thích hợp. Không sử dụng dung môi. -
+                  Tránh thải
+                  sơn ra môi trường. Không đổ sơn vào cống rãnh hay nguồn nước. Xử lý thùng sơn đã sử dụng theo đúng quy
+                  định địa phương. - Thông Tin An Toàn Sản Phẩm được cung cấp theo yêu cầu sử dụng.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+
+    <!-- Related Products -->
+    <div class="mb-8">
+      <h2 class="text-xl font-bold mb-4">Sản phẩm liên quan</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        @for (relatedProduct of relatedProducts; track relatedProduct.id) {
+        <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
+          <div class="p-[15px] text-left w-full">
+            <img [src]="relatedProduct.image" [alt]="relatedProduct.name" class="h-80 mb-4 object-contain mx-auto">
+            <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">{{ relatedProduct.name }}</h2>
+            <p class="text-gray-700 text-sm mb-4 line-clamp-5">{{ relatedProduct.description }}</p>
+          </div>
+          <a [routerLink]="['/san-pham', relatedProduct.id]" (click)="scrollToTop()"
+            class="bg-red-600 text-white rounded-full px-5 py-2 text-base font-semibold hover:bg-red-500 transition-all mt-auto self-center inline-block hover:cursor-pointer">Xem
+            sản phẩm</a>
+        </div>
+        }
+      </div>
+    </div>
+    }
+
+    <!-- Color Selection Dialog -->
+    <app-color-selection-dialog [isOpen]="isColorDialogOpen" [colors]="colors" (closeDialog)="onCloseColorDialog()"
+      (colorSelected)="onColorSelected($event)"></app-color-selection-dialog>
+  </div>
 </div>

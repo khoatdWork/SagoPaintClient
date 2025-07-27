@@ -5,8 +5,6 @@ export interface Product {
   description: string;
   category: 'interior' | 'exterior' | 'waterproof';
   technicalSpecs: string[];
-  howToUse: string[];
-  notes: string;
   mainInfo: Array<{
     key: string;
     value: string;
@@ -14,21 +12,9 @@ export interface Product {
   features: string[];
   howToApplyContent: {
     productInfoContent: string;
-    preparationSteps: Array<{
-      title: string;
-      content: string | { new: string; old: string };
-    }>;
-    tools: string;
-    thinning: string;
-    thinningRatio: string;
-    suggestedSystem: string[];
   };
 }
 
-export interface PreparationStep {
-  title: string;
-  content: string | { new: string; old: string };
-}
 
 export function isContentObject(content: string | { new: string; old: string }): content is { new: string; old: string } {
   return typeof content === 'object' && content !== null && 'new' in content;
