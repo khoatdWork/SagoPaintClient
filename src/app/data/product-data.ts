@@ -1,7 +1,7 @@
 export const mockProducts = [
   {
     id: 'SGP-ANCL-BBM-001',
-    name: 'Sơn Sagopaint Nội Thất Lau Chùi Hiệu Quả Anaclean - Bề Mặt Bóng Mờ',
+    name: 'Sơn Sago Ana Clean Lau Chùi Vượt Trội',
     category: 'interior',
     image: '/images/noi_that_ana_clean.png',
     description:
@@ -98,7 +98,7 @@ export const mockProducts = [
   },
   {
     id: 'SGP-MSMD-V2000-001',
-    name: 'Sơn Nội Thất Sagopaint Màng Sơn Mịn Đẹp V-2000',
+    name: 'Sơn Sago V-2000 Màng Sơn Mịn Đẹp',
     category: 'interior',
     image: '/images/son_sagopaint_smooth_and_beauty_v_2000.png',
     description:
@@ -178,7 +178,7 @@ export const mockProducts = [
   },
   {
     id: 'SGP-AMTX-001',
-    name: 'Sơn Nội Thất Sagopaint Che Phủ Tối Đa ANA MATEX',
+    name: 'Sơn Sago ANA MATEX Màn Sơn Sang Trọng',
     category: 'interior',
     image: '/images/son_noi_that_ana_matex.png',
     description:
@@ -279,7 +279,7 @@ export const mockProducts = [
   },
   {
     id: 'hoasen-ana',
-    name: 'Bột Trét Nội Thất HOASEN ANA',
+    name: 'Bột Trét Nội Thất HOASEN',
     category: 'interior',
     image: '/images/bot_tret_noi_that_hoa_sen_ana.png',
     description:
@@ -351,11 +351,11 @@ export const mockProducts = [
   },
   {
     id: 'SGP-SPR-001',
-    name: 'Sơn Sagopaint Lót Nội & Ngoại Thất Sealer Primer',
+    name: 'Sơn Lót Nội & Ngoại Thất Sealer Primer',
     category: 'interior',
     image: '/images/son_lot_noi_ngoai_that_sealer_primer.png',
     description:
-      `Sơn Sagopaint lót nội & ngoại thất Sealer Primer là loại sơn lót được sản xuất từ nhựa Acrylic với những tính năng: độ bám dính tốt, chống kiềm hiệu quả. Thích hợp sử dụng cho trang trí nội thất & ngoại thất trên bề mặt cũ và mới như: bề mặt hồ vữa, bê tông, xi măng`,
+      `Sơn Lót Nội & Ngoại Thất Sealer Primer là loại sơn lót được sản xuất từ nhựa Acrylic với những tính năng: độ bám dính tốt, chống kiềm hiệu quả. Thích hợp sử dụng cho trang trí nội thất & ngoại thất trên bề mặt cũ và mới như: bề mặt hồ vữa, bê tông, xi măng`,
     mainInfo: [
       {
         key: 'Thời gian khô',
@@ -431,7 +431,7 @@ export const mockProducts = [
   },
   {
     id: 'SGP-ANSH-BBM-001',
-    name: 'Sơn Ngoại Thất Chống Phai Màu Anashield - Bề Mặt Bóng Mờ',
+    name: 'Sơn Sago Anashield Chống Phai Màu',
     category: 'exterior',
     image: '/images/son_ngoai_that_ana_shield.png',
     description:
@@ -530,7 +530,7 @@ export const mockProducts = [
   },
   {
     id: 'SGP-CRMS-001',
-    name: 'Sơn Ngoại Thất Chống Râu Mốc Super Satin.1',
+    name: 'Sơn Sago Satin.1 Chống Râu Mốc',
     category: 'exterior',
     image: '/images/ngoai_that_super_satin_1.png',
     description:
@@ -628,7 +628,7 @@ export const mockProducts = [
   },
   {
     id: 'HSN-ANA-001',
-    name: 'Bột Trét Ngoại Thất HOASEN ANA',
+    name: 'Bột Trét Ngoại Thất HOASEN',
     category: 'exterior',
     image: '/images/bot_tret_ngoai_that_hoa_sen_ana.png',
     description:
@@ -704,7 +704,7 @@ export const mockProducts = [
   },
   {
     id: 'SGP-SPR-001',
-    name: 'Sơn Sagopaint Lót Nội & Ngoại Thất Sealer Primer',
+    name: 'Sơn Lót Nội & Ngoại Thất Sealer Primer',
     category: 'exterior',
     image: '/images/son_lot_noi_ngoai_that_sealer_primer.png',
     description:

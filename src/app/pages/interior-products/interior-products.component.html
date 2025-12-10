@@ -21,7 +21,7 @@
             @for (product of products; track $index) {
             <div class="bg-white rounded-lg shadow p-4 pb-[30px] flex flex-col items-start h-full">
                 <div class="p-[15px] text-left w-full">
-                    <img [src]="product.image" [alt]="product.name" class="h-80 mb-4 object-contain mx-auto">
+                    <img [src]="product.image" [alt]="product.name" class="h-100 mb-4 object-cover mx-auto">
                     <h2 class="font-semibold text-base mb-2 h-[48px] line-clamp-2">{{ product.name }}</h2>
                     <p class="text-gray-700 text-sm mb-4">{{ product.description }}</p>
                     <ul class="text-gray-600 text-base mb-4 list-disc list-inside">

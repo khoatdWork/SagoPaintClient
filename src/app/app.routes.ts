@@ -9,6 +9,7 @@ import { WaterproofProductsComponent } from './pages/waterproof-products/waterpr
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ColorMeaningComponent } from './pages/color-meaning/color-meaning.component';
 import { ColorInspirationComponent } from './pages/color-inspiration/color-inspiration.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'san-pham/:id', component: ProductDetailComponent },
   { path: 'y-nghia-mau-sac', component: ColorMeaningComponent },
   { path: 'cam-hung-mau-sac', component: ColorInspirationComponent },
+  { path: 've-chung-toi', component: AboutUsComponent },
   { path: '**', redirectTo: '' }
 ];

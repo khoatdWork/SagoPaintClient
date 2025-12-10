@@ -21,7 +21,7 @@
     <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <!-- Product Image -->
-        <div class="flex items-center justify-center mb-15">
+        <div class="flex items-center justify-center mb-20">
           <!-- Block for dynamic background color -->
           <div class="bg-[#f9f9f9] p-4 rounded-lg relative h-[300px] w-full flex items-center justify-center"
             [style.backgroundColor]="selectedColor?.colorCode">
@@ -36,7 +36,7 @@
               - {{ selectedColor.code}}</span>
             }
             <img [src]="product.image" [alt]="product.name"
-              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-64 h-64 md:w-84 md:h-84 object-contain" />
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-84 h-84 md:w-120 md:h-120 object-contain" />
           </div>
         </div>
         <!-- Product Details -->

@@ -1,0 +1,121 @@
+// Hero Section
+.hero-section {
+    background-image: url('/images/home_banner.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    @media (max-width: 768px) {
+        background-attachment: scroll;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+// Line clamp utility
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// Smooth transitions
+* {
+    transition-property: transform, box-shadow, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Hover effects
+.group:hover .group-hover\:translate-x-1 {
+    transform: translateX(0.25rem);
+}
+
+// Card hover effects
+.group:hover {
+    transform: translateY(-0.5rem);
+}
+
+// Image zoom on hover
+.group img {
+    transition: transform 0.5s ease;
+}
+
+.group:hover img {
+    transform: scale(1.1);
+}
+
+// Gradient overlays
+.bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-t {
+    background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+// Backdrop blur
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+// Shadow utilities
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+// Responsive text sizes
+@media (max-width: 640px) {
+    .text-6xl {
+        font-size: 3rem;
+        line-height: 1;
+    }
+    .text-7xl {
+        font-size: 3.5rem;
+        line-height: 1;
+    }
+    .text-8xl {
+        font-size: 4rem;
+        line-height: 1;
+    }
+}
+
+// Smooth scroll
+html {
+    scroll-behavior: smooth;
+}
+
+// Color gradient backgrounds
+.color-gradient-nau {
+    background: linear-gradient(135deg, #8a5d4b 0%, #6b4c3a 100%);
+}
+
+.color-gradient-xam {
+    background: linear-gradient(135deg, #a0a3a2 0%, #6b7280 100%);
+}
+
+.color-gradient-do {
+    background: linear-gradient(135deg, #b71c1c 0%, #8b0000 100%);
+}
+
+.color-gradient-xanh {
+    background: linear-gradient(135deg, #2196f3 0%, #1565c0 100%);
+}

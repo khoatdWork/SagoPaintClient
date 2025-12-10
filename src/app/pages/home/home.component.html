@@ -1,62 +1,414 @@
-<div class="min-h-screen pb-12 flex items-center" [style.background-image]="'url(images/home_banner.png)'" style="background-size: cover; background-position: center;">
-    <div class="relative px-6 lg:px-8 w-full">
-        <div class="mx-auto max-w-2xl">
+<!-- Hero Section -->
+<div class="hero-section min-h-screen flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
+    <div class="relative z-10 px-6 lg:px-8 w-full">
+        <div class="mx-auto max-w-4xl">
             <div class="text-center flex flex-col items-center">
-                <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">LOTUS</h1>
-                <p class="mt-4 text-lg font-medium text-pretty text-white sm:text-xl/8">Bộ Sưu Tập Màu Sắc Của Sơn Sago</p>
-                <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 w-full">
-                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 w-[200px] sm:w-auto">Ý NGHĨA MÀU SẮC</a>
-                    <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 w-[200px] sm:w-auto">CẢM HỨNG MÀU SẮC</a>
+                <h1 class="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white mb-6 animate-fade-in">
+                    LOTUS
+                </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl font-medium text-white/95 mb-8 max-w-2xl">
+                    Bộ Sưu Tập Màu Sắc Của Sơn Sago
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="group bg-white text-gray-900 rounded-full px-8 py-4 text-base font-bold shadow-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <span class="flex items-center gap-2">
+                            Ý NGHĨA MÀU SẮC
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="group bg-red-600 text-white rounded-full px-8 py-4 text-base font-bold shadow-xl hover:bg-red-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <span class="flex items-center gap-2">
+                            CẢM HỨNG MÀU SẮC
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="w-full py-12">
+<!-- Story Section -->
+<div class="w-full py-16 sm:py-20 bg-white">
     <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
-        <h2 class="text-3xl sm:text-5xl font-bold text-center mb-4">Sáng tạo câu chuyện</h2>
-        <p class="text-center max-w-3xl mx-auto mb-8 text-sm sm:text-base md:text-lg text-gray-700">
-            Một bức tường đều mang một câu chuyện đầy cảm hứng. Câu chuyện đó có thể trở nên sống động khi kết hợp với màu sơn hoàn hảo. Hãy cùng Sơn Sago khám phá những ý tưởng, thiết kế và kết hợp màu sắc hoàn hảo cho mỗi căn phòng.
-        </p>
-        <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 md:gap-12 mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">Sáng tạo câu chuyện</h2>
+            <div class="w-32 h-1 bg-red-600 mx-auto mb-6"></div>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                Một bức tường đều mang một câu chuyện đầy cảm hứng. Câu chuyện đó có thể trở nên sống động khi kết hợp với màu sơn hoàn hảo. Hãy cùng Sơn Sago khám phá những ý tưởng, thiết kế và kết hợp màu sắc hoàn hảo cho mỗi căn phòng.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
             <!-- Sơn Nội thất -->
-            <div class="flex-1 flex flex-col items-center mb-8 md:mb-0">
-                <img src="/images/son_noi_that.png" alt="Sơn Nội thất" class="rounded-2xl object-cover w-full h-72 sm:h-96 mb-4 shadow-md">
-                <h3 class="text-2xl font-semibold text-center mb-4">Sơn Nội thất</h3>
-                <a routerLink="/noi-that/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] text-center">Khám phá ngay</a>
+            <div class="group flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                <div class="relative overflow-hidden rounded-2xl shadow-xl mb-6">
+                    <img src="/images/son_noi_that.png" alt="Sơn Nội thất" class="w-full h-80 sm:h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-4 text-gray-900">Sơn Nội thất</h3>
+                <a routerLink="/noi-that/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-8 py-3 font-bold text-base hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                    Khám phá ngay
+                </a>
             </div>
             <!-- Sơn Ngoại thất -->
-            <div class="flex-1 flex flex-col items-center">
-                <img src="/images/son_ngoai_that.png" alt="Sơn Ngoại thất" class="rounded-2xl object-cover w-full h-72 sm:h-96 mb-4 shadow-md">
-                <h3 class="text-xl sm:text-2xl font-semibold text-center mb-4">Sơn Ngoại thất</h3>
-                <a routerLink="/ngoai-that/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] text-center">Khám phá ngay</a>
+            <div class="group flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                <div class="relative overflow-hidden rounded-2xl shadow-xl mb-6">
+                    <img src="/images/son_ngoai_that.png" alt="Sơn Ngoại thất" class="w-full h-80 sm:h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-4 text-gray-900">Sơn Ngoại thất</h3>
+                <a routerLink="/ngoai-that/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-8 py-3 font-bold text-base hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                    Khám phá ngay
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Sơn chống thấm block -->
-<div class="w-full bg-white md:bg-stone-100">
-    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 md:py-12">
-        <!-- Image -->
-        <div class="w-full md:w-1/2">
-            <img src="/images/son_chong_tham.png" alt="Sơn chống thấm" class="w-full h-72 sm:h-96 object-cover rounded-2xl shadow-md mb-4 md:mb-0">
-            <div class="md:hidden">
-                <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-center">Sơn chống thấm</h3>
-                <p class="text-sm sm:text-base text-gray-700 mb-6 text-center">
+<!-- Sơn chống thấm Section -->
+<div class="w-full py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div class="order-2 md:order-1">
+                <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">Sơn chống thấm</h3>
+                <p class="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">
                     Chống thấm là hạng mục quan trọng nhất cho phần hoàn thiện của một căn nhà, giúp ngôi nhà của bạn kéo dài tuổi thọ & giúp lớp sơn phủ bền màu hơn.
                 </p>
-                <a routerLink="/chong-tham/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px] mx-auto block text-center">Khám phá ngay</a>
+                <a routerLink="/chong-tham/san-pham" (click)="scrollToTop()" class="inline-block bg-red-600 text-white rounded-full px-8 py-3 font-bold text-base hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                    Khám phá ngay
+                </a>
+            </div>
+            <div class="order-1 md:order-2">
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105">
+                    <img src="/images/son_chong_tham.png" alt="Sơn chống thấm" class="w-full h-80 sm:h-96 object-cover">
+                </div>
             </div>
         </div>
-        <!-- Content -->
-        <div class="hidden md:flex md:w-1/2 flex-col items-center text-center">
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-center">Sơn chống thấm</h3>
-            <p class="text-sm sm:text-base text-gray-700 mb-6 text-center">
-                Chống thấm là hạng mục quan trọng nhất cho phần hoàn thiện của một căn nhà, giúp ngôi nhà của bạn kéo dài tuổi thọ & giúp lớp sơn phủ bền màu hơn.
+    </div>
+</div>
+
+<!-- Ý nghĩa màu sắc Section -->
+<div class="w-full py-16 sm:py-20 bg-white">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">Ý Nghĩa Màu Sắc</h2>
+            <div class="w-32 h-1 bg-red-600 mx-auto mb-6"></div>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+                Màu sắc là ngôn ngữ của cảm xúc và phong cách. Khám phá ý nghĩa đằng sau những màu sơn nổi bật của chúng tôi.
             </p>
-            <a routerLink="/chong-tham/san-pham" (click)="scrollToTop()" class="bg-red-600 text-white rounded-full px-5 py-2 font-semibold text-sm sm:text-base hover:bg-red-500 transition-all cursor-pointer hover:scale-105 duration-300 w-[200px]">Khám phá ngay</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+            <!-- Màu Nâu -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-48 relative" style="background: linear-gradient(135deg, #8a5d4b 0%, #6b4c3a 100%);">
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <span class="font-bold text-gray-900">AP 42-4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Màu Nâu</h3>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Thể hiện sự "Kiên Định" giống tính chất của đất. Màu nâu mang lại cảm giác an toàn, vững chắc và ấm áp.
+                    </p>
+                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Tìm hiểu thêm
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Màu Xám -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-48 relative" style="background: linear-gradient(135deg, #a0a3a2 0%, #6b7280 100%);">
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <span class="font-bold text-gray-900">AP 49-2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Màu Xám</h3>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Thể hiện "Trí Tuệ và Sự Cân Bằng". Màu xám mang lại sự tinh tế, sang trọng và chuyên nghiệp.
+                    </p>
+                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Tìm hiểu thêm
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Màu Đỏ -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-48 relative" style="background: linear-gradient(135deg, #b71c1c 0%, #8b0000 100%);">
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <span class="font-bold text-gray-900">AP 156-1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Màu Đỏ</h3>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Màu của "Chiến Thắng, Dũng Cảm & May Mắn". Màu đỏ thể hiện sự quyến rũ, nhiệt huyết và mạnh mẽ.
+                    </p>
+                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Tìm hiểu thêm
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Màu Xanh Dương -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-48 relative" style="background: linear-gradient(135deg, #2196f3 0%, #1565c0 100%);">
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <span class="font-bold text-gray-900">AP 33-4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Màu Xanh Dương</h3>
+                    <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                        Thể hiện sự "Tin Tưởng và Trung Thành". Màu xanh mang lại cảm giác thanh bình, tin cậy và ổn định.
+                    </p>
+                    <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Tìm hiểu thêm
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a routerLink="/y-nghia-mau-sac" (click)="scrollToTop()" class="inline-block bg-red-600 text-white rounded-full px-8 py-4 font-bold text-base hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                Xem tất cả ý nghĩa màu sắc
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Cảm hứng màu sắc Section -->
+<div class="w-full py-16 sm:py-20 bg-gradient-to-br from-red-50 to-orange-50">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">Cảm Hứng Màu Sắc</h2>
+            <div class="w-32 h-1 bg-red-600 mx-auto mb-6"></div>
+            <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+                Khám phá những ý tưởng thiết kế độc đáo và cách phối màu sắc hoàn hảo cho không gian sống của bạn.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
+            <!-- Scandinavian Style -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-64 relative overflow-hidden bg-gray-100">
+                    <img src="/images/color_inspiration/scandinavian_style.jpg" alt="Phong cách Scandinavian" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div class="absolute top-4 left-4 right-4 flex gap-2 flex-wrap">
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #f5f5f5;"></div>
+                            <span>AP 01-1</span>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #8a5d4b;"></div>
+                            <span>AP 42-4</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Scandinavian</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4 line-clamp-3">
+                        Phong cách Scandinavian nổi tiếng với sự đơn giản, tối giản và tận dụng ánh sáng tự nhiên. Gam màu chủ đạo là trắng và xám nhạt, kết hợp với điểm nhấn màu nâu ấm.
+                    </p>
+                    <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Xem chi tiết
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Modern Style -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-64 relative overflow-hidden bg-blue-100">
+                    <img src="/images/color_inspiration/modern_style.jpg" alt="Phong cách Modern" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div class="absolute top-4 left-4 right-4 flex gap-2 flex-wrap">
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #2196f3;"></div>
+                            <span>AP 33-4</span>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #f5f5f5;"></div>
+                            <span>AP 01-1</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Modern</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4 line-clamp-3">
+                        Phong cách Modern tập trung vào sự đơn giản, tối giản và chức năng. Gam màu sử dụng các màu trung tính làm nền và màu sắc tươi sáng làm điểm nhấn.
+                    </p>
+                    <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Xem chi tiết
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Industrial Style -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-64 relative overflow-hidden bg-gray-300">
+                    <img src="/images/color_inspiration/industrial_style.jpg" alt="Phong cách Industrial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div class="absolute top-4 left-4 right-4 flex gap-2 flex-wrap">
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #a0a3a2;"></div>
+                            <span>AP 49-2</span>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-bold text-gray-800 flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #212121;"></div>
+                            <span>AP 02-1</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Industrial</h3>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4 line-clamp-3">
+                        Phong cách Industrial lấy cảm hứng từ các nhà máy và xưởng công nghiệp cũ. Gam màu chủ đạo là xám và đen, kết hợp với các chi tiết kim loại.
+                    </p>
+                    <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="text-red-600 font-semibold text-sm hover:text-red-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Xem chi tiết
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a routerLink="/cam-hung-mau-sac" (click)="scrollToTop()" class="inline-block bg-red-600 text-white rounded-full px-8 py-4 font-bold text-base hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                Xem tất cả cảm hứng màu sắc
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Về chúng tôi Section -->
+<div class="w-full py-16 sm:py-20 bg-gray-50">
+    <div class="px-[5%] lg:px-[10%] 2xl:px-[15%] mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">Về Sơn SAGO</h2>
+            <div class="w-32 h-1 bg-red-600 mx-auto mb-6"></div>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                <strong>Sơn SAGO (SAGO PAINT)</strong> là thương hiệu <strong>sơn công nghệ xanh</strong> của Việt Nam, ra đời từ năm <strong>2015</strong> với khát vọng tạo nên những lớp sơn bền màu 10 năm, an toàn cho sức khỏe và bền vững cùng thời
+                gian.
+            </p>
+        </div>
+
+        <!-- Vision & Mission -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12 max-w-6xl mx-auto">
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">Tầm nhìn</h3>
+                </div>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Trở thành <strong>thương hiệu sơn hàng đầu Việt Nam</strong> về <strong>công nghệ xanh</strong>, độ bền màu và chất lượng bảo vệ công trình trong khí hậu nhiệt đới.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-900">Sứ mệnh</h3>
+                </div>
+                <ul class="space-y-3 text-lg text-gray-700">
+                    <li class="flex items-start">
+                        <span class="text-red-600 mr-3 text-xl">•</span>
+                        <span>Nâng tầm chất lượng cuộc sống người Việt thông qua không gian sống bền đẹp.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-600 mr-3 text-xl">•</span>
+                        <span>Bảo vệ công trình kiến trúc Việt bằng các sản phẩm <strong>sơn an toàn, VOC thấp</strong>.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-600 mr-3 text-xl">•</span>
+                        <span>Mang đến giải pháp tối ưu cho kiến trúc sư, nhà thầu, đại lý và chủ nhà.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technology Highlights -->
+        <div class="mb-12 max-w-7xl mx-auto">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900">Công nghệ lõi</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-red-600">
+                    <div class="text-4xl font-bold text-red-100 mb-4">01</div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-lg">Color-Lock Technology</h4>
+                    <p class="text-sm text-gray-600">Khóa lại ký ức của màu sắc, giữ màu bền đẹp đến 10 năm</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-red-600">
+                    <div class="text-4xl font-bold text-red-100 mb-4">02</div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-lg">Hydro-Shield</h4>
+                    <p class="text-sm text-gray-600">Lớp áo chống thấm cho công trình, tăng tuổi thọ</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-red-600">
+                    <div class="text-4xl font-bold text-red-100 mb-4">03</div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-lg">Self-Cleaning</h4>
+                    <p class="text-sm text-gray-600">Bề mặt tự làm sạch nhẹ nhàng, luôn sáng sạch</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-red-600">
+                    <div class="text-4xl font-bold text-red-100 mb-4">04</div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-lg">VOC cực thấp</h4>
+                    <p class="text-sm text-gray-600">Sơn công nghệ xanh an toàn cho sức khỏe</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Philosophy & CTA -->
+        <div class="bg-white rounded-xl p-8 sm:p-12 shadow-xl border-l-4 border-red-600 text-center max-w-4xl mx-auto">
+            <p class="text-2xl sm:text-3xl text-gray-700 mb-8 leading-relaxed">
+                <strong class="text-red-600">Triết lý cốt lõi:</strong> "Màu sắc phải bền vững như kiến trúc."
+            </p>
+            <a routerLink="/ve-chung-toi" (click)="scrollToTop()" class="inline-block bg-red-600 text-white rounded-full px-8 py-4 font-bold text-lg hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                Tìm hiểu thêm về chúng tôi
+            </a>
         </div>
     </div>
 </div>
